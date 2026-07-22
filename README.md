@@ -37,6 +37,13 @@ PS> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 PS> .\lc-academy-env\Scripts\Activate.ps1
 PS> pip install -r requirements.txt
 ```
+#### Using uv (alternative, faster)
+If you have [uv](https://docs.astral.sh/uv/) installed, you can use it instead:
+```
+$ uv venv lc-academy-env
+$ source lc-academy-env/bin/activate
+$ uv pip install -r requirements.txt
+```
 
 ### Running notebooks
 If you don't have Jupyter set up, follow the installation instructions [here](https://jupyter.org/install).
@@ -55,9 +62,9 @@ $ export API_ENV_VAR="your-api-key-here"
 PS> $env:API_ENV_VAR = "your-api-key-here"
 ```
 
-### Set OpenAI API key
-* If you don't have an OpenAI API key, you can sign up [here](https://openai.com/index/openai-api/).
-*  Set `OPENAI_API_KEY` in your environment 
+### Set up Google AI Studio API key
+* If you don't have a Google AI Studio API key, you can get one for free [here](https://aistudio.google.com/apikey).
+*  Set `GOOGLE_API_KEY` in your environment 
 
 ### Sign up and Set LangSmith API
 * Sign up for LangSmith [here](https://docs.langchain.com/langsmith/create-account-api-key#create-an-account-and-api-key), find out more about LangSmith and how to use it within your workflow [here](https://www.langchain.com/langsmith). 
@@ -99,7 +106,7 @@ Open your browser and navigate to the Studio UI: `https://smith.langchain.com/st
 ```
 for i in {1..5}; do
   cp module-$i/studio/.env.example module-$i/studio/.env
-  echo "OPENAI_API_KEY=\"$OPENAI_API_KEY\"" > module-$i/studio/.env
+  echo "GOOGLE_API_KEY=\"$GOOGLE_API_KEY\"" > module-$i/studio/.env
 done
 echo "TAVILY_API_KEY=\"$TAVILY_API_KEY\"" >> module-4/studio/.env
 ```
